@@ -6,7 +6,7 @@
 
 <p>Paso uno Agregar el CSS</p>
 
-<code>
+<pre>
 	.fade-in {
       animation-name: fadeIn;
       animation-duration: 1.3s;
@@ -23,15 +23,17 @@
         opacity: 1;
       }
     }
-</code>
+</pre>
 
 <p>Paso dos cambio de atributto a nuestra etiqueta SCR</p>
 
-<code>
+<pre>
 
-	DE src="cielo.jpg a data-src="cielo.jpg
+  <img  width="400" height="400" src="cometanike.png">
 
-</code>
+  <img  width="400" height="400" data-src="cometanike.png">
+
+</pre>
 
 <p>Paso tres agregar el siguiente scritp a nuestra web al final</p>
 
