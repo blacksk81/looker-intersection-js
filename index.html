@@ -1,8 +1,5 @@
-
-
 <!DOCTYPE html>
-<html>
-
+<html lang="es">
 <head>
   <meta charset="UTF-8">
   <title>Luis Bernal | Observadore de intersection 19112018</title>
@@ -29,72 +26,40 @@
 
 <body>
 
-	
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			
+			<img  width="400" height="400" data-src="cometanike.png">
 
-  <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+			<div style="margin: 1000px 0px;"></div>
 
-  <img  width="400" height="400" data-src="cometanike.png">
-  
-  <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+			<img  width="400" height="400" data-src="gritando.jpg">
 
-  <img  width="400" height="400" data-src="gritando.jpg">
+			<div style="margin: 1000px 0px;"></div>
 
-  <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br> 
+			<img  width="400" height="400"  data-src="sky.jpg">
 
-  <img  width="400" height="400"  data-src="sky.jpg">
+			<div style="margin: 1000px 0px;"></div>
 
-  <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br> 
+			<img  width="400" height="400"  data-src="sumate.jpg">
 
-  <img  width="400" height="400"  data-src="sumate.jpg">
+			<div style="margin: 1000px 0px;"></div>
 
-<script type="text/javascript">
- 'use strict';
- var images = document.querySelectorAll('img'),
-     config = {
-         rootMargin: '50px 0px',
-         threshold: 0.01
-     },
-     imageCount = images.length,
-     observer;
- if (!('IntersectionObserver' in window)) loadImagesImmediately(images);
- else {
-     observer = new IntersectionObserver(onIntersection, config);
-     for (var image, i = 0; i < images.length; i++)(image = images[i], !image.classList.contains('js-lazy-image--handled')) && observer.observe(image)
- }
+			<img width="400" height="400" data-src="cielo.jpg">  
 
- function fetchImage(a) {
-     return new Promise(function(b, c) {
-         var d = new Image;
-         d.src = a, d.onload = b, d.onerror = c
-     })
- }
+			<div style="margin: 1000px 0px;"></div>	
 
- function preloadImage(a) {
-     var b = a.dataset.src;
-     return b ? fetchImage(b).then(function() {
-         applyImage(a, b)
-     }) : void 0
- }
+		</div>
+	</div>
+</div>	
 
- function loadImagesImmediately(a) {
-     for (var d, b = Array.from(a), c = 0; c < a.length; c++) d = a[c], preloadImage(d)
- }
 
- function disconnect() {
-     observer && observer.disconnect()
- }
 
- function onIntersection(a) {
-     0 === imageCount && observer.disconnect();
-     for (var c, b = 0; b < a.length; b++) c = a[b], 0 < c.intersectionRatio && (imageCount--, observer.unobserve(c.target), preloadImage(c.target))
- }
 
- function applyImage(a, b) {
-     a.classList.add('js-lazy-image--handled'), a.src = b, a.classList.add('fade-in')
- }
-</script>
+<script src="js/ob-inter.js" type="text/javascript"></script>
+
 
 
 </body>
-
 </html>
