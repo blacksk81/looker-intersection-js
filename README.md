@@ -85,3 +85,5 @@
  }	
 
 </pre>
+
+<p><b>ESTA FUNCION ESTA SOLO PARA LA CARGA DE IMAGENES</b></p>
