@@ -4,7 +4,7 @@
 <p>Este pequeño scritp nos ayudara a la carga asincronica de imagenes el campo visual de la pantalla de esta manera las images que estan fuera del campo visual de la pantalla del usuario su carga se encontrara en espera hasta que sea visible para el usuario, pero para que la carga no sea tan grotesta y de golpe agregaremos un pequeño css para que la transcion mas suave entre images</p>
 
 
-<p>Paso uno Agregar el CSS</p>
+<p>Paso uno Agregar el CSS de la etiqueta img cambiar scr por data-scr</p>
 
 <pre>
 	.fade-in {
