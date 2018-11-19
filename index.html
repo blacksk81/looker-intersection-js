@@ -1,0 +1,105 @@
+
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Lazy Loading images using Intersection Observer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    .fade-in {
+      animation-name: fadeIn;
+      animation-duration: 1.3s;
+      animation-timing-function: cubic-bezier(0, 0, 0.4, 1);
+      animation-fill-mode: forwards;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
+    }
+
+.centered {
+   display:block;
+   margin:0 auto;
+}
+  </style>
+</head>
+
+<body>
+
+  <img  width="400" height="400" data-src="cielo.jpg">
+
+  <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+  <img  width="400" height="400" data-src="cometanike.png">
+  
+  <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+  <img  width="400" height="400" data-src="gritando.jpg">
+
+  <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br> 
+
+  <img  width="400" height="400"  data-src="sky.jpg">
+
+  <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br> 
+
+  <img  width="400" height="400"  data-src="sumate.jpg">
+
+<script type="text/javascript">
+ 'use strict';
+ var images = document.querySelectorAll('img'),
+     config = {
+         rootMargin: '50px 0px',
+         threshold: 0.01
+     },
+     imageCount = images.length,
+     observer;
+ if (!('IntersectionObserver' in window)) loadImagesImmediately(images);
+ else {
+     observer = new IntersectionObserver(onIntersection, config);
+     for (var image, i = 0; i < images.length; i++)(image = images[i], !image.classList.contains('js-lazy-image--handled')) && observer.observe(image)
+ }
+
+ function fetchImage(a) {
+     return new Promise(function(b, c) {
+         var d = new Image;
+         d.src = a, d.onload = b, d.onerror = c
+     })
+ }
+
+ function preloadImage(a) {
+     var b = a.dataset.src;
+     return b ? fetchImage(b).then(function() {
+         applyImage(a, b)
+     }) : void 0
+ }
+
+ function loadImagesImmediately(a) {
+     for (var d, b = Array.from(a), c = 0; c < a.length; c++) d = a[c], preloadImage(d)
+ }
+
+ function disconnect() {
+     observer && observer.disconnect()
+ }
+
+ function onIntersection(a) {
+     0 === imageCount && observer.disconnect();
+     for (var c, b = 0; b < a.length; b++) c = a[b], 0 < c.intersectionRatio && (imageCount--, observer.unobserve(c.target), preloadImage(c.target))
+ }
+
+ function applyImage(a, b) {
+     a.classList.add('js-lazy-image--handled'), a.src = b, a.classList.add('fade-in')
+ }
+</script>
+
+
+</body>
+
+</html>
