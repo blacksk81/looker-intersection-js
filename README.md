@@ -35,8 +35,8 @@
 
 <p>Paso tres agregar el siguiente scritp a nuestra web al final</p>
 
-<code>
-	
+<pre>
+
 'use strict';
  var images = document.querySelectorAll('img'),
      config = {
@@ -82,4 +82,4 @@
      a.classList.add('js-lazy-image--handled'), a.src = b, a.classList.add('fade-in')
  }	
 
-</code>
+</pre>
