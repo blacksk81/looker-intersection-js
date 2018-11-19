@@ -29,9 +29,9 @@
 
 <pre>
 
-  <img  width="400" height="400" src="cometanike.png">
-
-  <img  width="400" height="400" data-src="cometanike.png">
+ src="cometanike.png
+ <br>
+ data-src="cometanike.png
 
 </pre>
 
